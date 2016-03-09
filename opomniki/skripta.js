@@ -1,9 +1,9 @@
-window.addEventListener('load', function() {
+window.addEventListener('load', function() { //ko se nalozi naredi to funkcijo
 	//stran nalozena
 		
 	//Posodobi opomnike
 	var posodobiOpomnike = function() {
-		var opomniki = document.querySelectorAll(".opomnik");
+		var opomniki = document.querySelectorAll(".opomnik"); //select vse z clasom opomnik
 		
 		for (i = 0; i < opomniki.length; i++) {
 			var opomnik = opomniki[i];
@@ -16,5 +16,15 @@ window.addEventListener('load', function() {
 		}
 	}
 	setInterval(posodobiOpomnike, 1000);
+	
+	var izvediPrijavo = function(event){ //event je ce hocemo s tem se kaj delati(koliko casa traja event,...)
+		var ime = document.querySelector("#uporabnisko_ime").value; //select komponento z ID uporabnisko ime in ce je txt field ima atribut value
+		document.querySelector("#uporabnik").innerHTML = ime; //ce ni txt field je namesto value innerHTML atribut
+		
+		document.querySelector(".pokrivalo").style.visibility = "hidden"
+	}
+	
+	//povezi gumb z funkcijo
+	document.querySelector("#prijavniGumb").addEventListener('click', izvediPrijavo); //ne damo event
 	
 });
