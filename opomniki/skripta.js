@@ -24,7 +24,18 @@ window.addEventListener('load', function() { //ko se nalozi naredi to funkcijo
 		document.querySelector(".pokrivalo").style.visibility = "hidden"
 	}
 	
+	var izvediOpomnik = function(event){
+		var naziv = document.querySelector("#naziv_opomnika").value;
+		var cas1 = document.querySelector("#cas_opomnika").value;
+			
+		document.querySelector("#naziv_opomnika").value = " ";
+		document.querySelector("#cas_opomnika").value = " ";
+	
+		document.querySelector("#opomniki").innerHTML += "<div class='opomnik'> <div class='naziv_opomnika'>"+naziv+"</div> <div class='cas_opomnika'> Opomnik čez <span>"+cas1+"</span> sekund.</div> </div>";
+	}
+	
 	//povezi gumb z funkcijo
 	document.querySelector("#prijavniGumb").addEventListener('click', izvediPrijavo); //ne damo event
+	document.querySelector("#dodajGumb").addEventListener('click', izvediOpomnik);
 	
 });
